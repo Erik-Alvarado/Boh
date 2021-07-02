@@ -1,0 +1,242 @@
+.hero-content {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  @include breakpoint-up(x-small) {
+    flex-direction: column;
+    margin-bottom: 70px;
+  }
+  @include breakpoint-up(small) {
+    flex-direction: column;
+    margin-bottom: 70px;
+  }
+
+  .imgContain {
+    height: 100%;
+    width: 42%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 20px;
+    grid-template-rows: 300px;
+    animation: fadeUp 0.9s ease-in-out;
+    @include breakpoint-up(x-small) {
+      display: none;
+    }
+    @include breakpoint-up(small) {
+      display: none;
+    }
+
+    .imgBack {
+      height: 274px;
+      width: 385px;
+      padding: 15px 0 0 15px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.2);
+
+      .advenImg {
+        //   background-image: url("/assets/adventures.png");
+        background-color: red;
+        background-size: 200%;
+        border-radius: 10px;
+        box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
+        background-position: 15%;
+        background-size: cover;
+      }
+    }
+    :nth-child(1) {
+      height: 274px;
+      width: 385px;
+      padding: 15px 0 0 15px;
+      .advenImg {
+        background-image: url("/assets/mountain.png");
+        height: 274px;
+        width: 385px;
+      }
+    }
+    :nth-child(2) {
+      height: 635px;
+      width: 385px;
+      padding: 15px 0 0 15px;
+      margin-top: 50px;
+      .advenImg {
+        background-image: url("/assets/river.png");
+        height: 635px;
+        width: 385px;
+      }
+    }
+    :nth-child(3) {
+      height: 555px;
+      width: 385px;
+      padding: 15px 0 0 15px;
+      .advenImg {
+        background-image: url("/assets/waterfall.png");
+        height: 555px;
+        width: 385px;
+      }
+    }
+  }
+  .advenTxt {
+    height: 200px;
+    width: 500px;
+    align-self: center;
+    margin-left: 15px;
+    animation: fadeRight 0.9s ease-in-out;
+    @include breakpoint-up(x-small) {
+      width: 460px;
+    }
+    .morph {
+      :hover {
+        i {
+          margin-left: 40px;
+          transition: ease 1s;
+        }
+      }
+    }
+    .callAction {
+      cursor: pointer;
+      padding: 6px 10px 8px 8px;
+      margin-top: 10px;
+      border: 2px solid $accentBlack;
+      border-radius: 10px;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.25rem;
+      background-color: transparent;
+
+      i {
+        vertical-align: middle;
+        margin-left: 10px;
+        transition: ease-out 1s;
+      }
+    }
+  }
+}
+.hero-blog {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  .blog-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    // width: 30%;
+    margin-bottom: 30px;
+    align-self: center;
+    animation: fadeUp 1s ease;
+
+    div:first-child {
+      width: 15%;
+      border-bottom: 4px solid $accentBlack;
+      justify-self: end;
+      margin-right: 8px;
+    }
+    div:last-child {
+      width: 15%;
+      border-bottom: 4px solid $accentBlack;
+      justify-self: start;
+      margin-left: 8px;
+    }
+    h3 {
+      border-bottom: 4px solid $accentBlack;
+      padding: 0 15px;
+      @include breakpoint-up(x-small) {
+        padding: 0;
+      }
+      @include breakpoint-up(small) {
+        padding: 0;
+      }
+    }
+  }
+  .blog-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 25px;
+    animation: fadeRight 1s ease;
+    animation-delay: 1s;
+    @include breakpoint-up(x-small) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-content: center;
+    }
+    @include breakpoint-up(small) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-content: center;
+    }
+    :nth-child(1) {
+      background-image: url("/assets/canyon.png");
+    }
+    :nth-child(2) {
+      background-image: url("/assets/hike.png");
+    }
+    :nth-child(3) {
+      background-image: url("/assets/diner.png");
+    }
+    .blog-card:hover,
+    .blog-card:focus {
+      background-size: 230%;
+    }
+    .blog-card {
+      display: flex;
+      height: 530px;
+      width: 417px;
+      align-items: flex-end;
+      border-radius: 10px;
+      background-position: center;
+      background-size: 195%;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: 1s ease all;
+
+      .blog-overlay {
+        height: 217px;
+        padding: 20px 20px;
+        background-image: none;
+        background-color: $accentBlack;
+        box-shadow: 0px -6px 12px rgba(0, 0, 0, 0.5);
+        border-radius: 0 0 10px 10px;
+        display: flex;
+        flex-direction: column;
+
+        h4 {
+          color: white;
+          background-image: none;
+        }
+        .callRead {
+          color: $offWhite;
+          cursor: pointer;
+          padding: 3px 6px 4px 6px;
+          margin: 10px auto;
+          border: 2px solid $offWhite;
+          border-radius: 10px;
+          font-family: "Oswald", sans-serif;
+          font-size: 1.25rem;
+          background-color: transparent;
+          transition: ease-out 0.25s;
+          background-image: none;
+        }
+        a {
+          background-image: none;
+          align-self: flex-end;
+        }
+        i {
+          background-image: none;
+        }
+        .callRead:hover {
+          color: $offWhite_hov;
+          border: 2px solid $offWhite_hov;
+          transition: ease-in 0.5s;
+        }
+
+        p {
+          color: $offWhite;
+          height: 79px;
+          width: 377px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          background-image: none;
+        }
+      }
+    }
+  }
+}

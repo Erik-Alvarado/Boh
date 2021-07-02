@@ -1,0 +1,183 @@
+header {
+  height: 70px;
+  position: fixed;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+  width: 100%;
+  z-index: 5;
+  background: $accentBlack;
+  .ham-menu {
+    display: none;
+    div {
+      background-color: #fff;
+      width: 30px;
+      background: white;
+      height: 3px;
+      margin: 7px auto;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+    @include breakpoint-down(small) {
+      display: block;
+    }
+  }
+  .menu-nav {
+    padding: 10px 20px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+    border: 0px solid red;
+    color: #fff;
+    a {
+      @include breakpoint-up(x-small) {
+        margin-right: -80px;
+      }
+    }
+    .nav-logo {
+      width: 34%;
+    }
+    .nav-links {
+      list-style-type: none;
+      display: inline-flex;
+      @include breakpoint-down(small) {
+        display: block;
+        position: fixed;
+        right: -100%;
+        top: 5rem;
+        flex-direction: column;
+        width: 50%;
+        border-radius: 10px;
+        transition: ease 0.3s;
+      }
+      @include breakpoint-up(x-small) {
+        height: 55px;
+      }
+
+      .dropdown {
+        margin-right: 10px;
+        padding: 10px 10px 12px 10px;
+        font-size: 1.35rem;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        @include breakpoint-up(x-small) {
+          margin-right: 0px;
+        }
+      }
+      .dropdown:hover .dropdown-content {
+        display: flex;
+        flex-direction: column;
+      }
+      .dropdown-content {
+        word-wrap: break-word;
+        list-style: none;
+        font-size: 1.1rem;
+        display: none;
+        position: absolute;
+        background-color: $bodyGray;
+        min-width: 100px;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+        z-index: 1;
+        border-top: 5px solid #fff;
+        margin: 13px 0 0 0;
+
+        li {
+          padding: 5px 15px;
+          text-align: left;
+        }
+        a {
+          color: $offWhite;
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+
+      a:hover {
+        color: $offWhite_hov;
+        @include breakpoint-up(x-small) {
+          color: $offWhite;
+        }
+      }
+
+      form.nav-search {
+        margin: auto;
+      }
+      input {
+        outline: none;
+      }
+      input[type="search"] {
+        -webkit-appearance: textfield;
+        font-family: inherit;
+        font-size: 100%;
+        background: url("/assets/SVG/Icon\ feather-search-white.svg") no-repeat
+          4px center;
+        background-size: 25px 22px;
+        border: 0px solid #ccc;
+        padding: 7px 10px 7px 35px;
+        width: 37px;
+
+        -webkit-border-radius: 10em;
+        -moz-border-radius: 10em;
+        border-radius: 10em;
+
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        transition: all 0.5s;
+      }
+      input[type="search"]:focus {
+        width: 130px;
+        background-color: transparent;
+        border: 1px solid $mintGreen;
+
+        -webkit-box-shadow: 0 0 5px rgba(109, 246, 132, 0.5);
+        -moz-box-shadow: 0 0 5px rgba(109, 246, 116, 0.5);
+        box-shadow: 0 0 5px rgba(109, 246, 143, 0.5);
+      }
+      input:-moz-placeholder {
+        color: rgba(255, 255, 255, 0.267);
+      }
+      input::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.267);
+      }
+      .nav-search input[type="search"] {
+        padding-left: 10px;
+        color: transparent;
+        cursor: pointer;
+      }
+      .nav-search input[type="search"]:hover {
+        background-color: transparent;
+      }
+      .nav-search input[type="search"]:focus {
+        width: 250px;
+        padding-left: 32px;
+        color: #fff;
+        background-color: transparent;
+        cursor: auto;
+      }
+      .nav-search input:-moz-placeholder {
+        color: transparent;
+      }
+      .nav-search input::-webkit-input-placeholder {
+        color: transparent;
+      }
+      input::-webkit-search-decoration,
+      input::-webkit-search-cancel-button {
+        display: none;
+      }
+    }
+    @include breakpoint-up(x-small) {
+      padding: 10px 10px;
+    }
+  }
+}
+.active {
+  .nav-links {
+    right: 0;
+  }
+}
+.nav-up {
+  top: -70px;
+}

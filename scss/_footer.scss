@@ -1,0 +1,78 @@
+.hero-foot {
+  margin-top: 35px;
+  background-color: $accentBlack;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  .foot-info {
+    width: 457px;
+    @include breakpoint-up(small) {
+      width: 50%;
+    }
+    @include breakpoint-up(x-small) {
+      width: 50%;
+    }
+    .foot-logo {
+      width: 30%;
+    }
+    p {
+      font-size: 1rem;
+      @include breakpoint-up(small) {
+        font-size: 0.75rem;
+      }
+      @include breakpoint-up(x-small) {
+        font-size: 0.75rem;
+      }
+    }
+  }
+  .foot-nav {
+    width: 350px;
+    cursor: pointer;
+    @include breakpoint-up(x-small) {
+      width: 50%;
+    }
+    @include breakpoint-up(small) {
+      width: 50%;
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      @include breakpoint-up(small) {
+        justify-content: space-evenly;
+      }
+      @include breakpoint-up(x-small) {
+        justify-content: space-evenly;
+      }
+      li {
+        font-size: 1.5rem;
+        list-style: none;
+        font-family: "Oswald", sans-serif;
+        .sub-nav {
+          li {
+            font-size: 1rem;
+          }
+          a {
+            text-decoration: none;
+            color: $footWhite;
+            transition: ease 0.5s;
+          }
+          a:hover {
+            color: $footWhite_hov;
+          }
+        }
+      }
+    }
+  }
+  .foot-social {
+    font-size: 2.5rem;
+    @include breakpoint-up(x-small) {
+      display: flex;
+      flex-direction: column;
+    }
+    @include breakpoint-up(small) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

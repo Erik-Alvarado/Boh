@@ -32,7 +32,7 @@ header {
     border: 0px solid red;
     color: #fff;
     a {
-      @include breakpoint-up(x-small) {
+      @include breakpoint-down(small) {
         margin-right: -80px;
       }
     }
@@ -52,7 +52,7 @@ header {
         border-radius: 10px;
         transition: ease 0.3s;
       }
-      @include breakpoint-up(x-small) {
+      @include breakpoint-down(small) {
         height: 55px;
       }
 
@@ -63,7 +63,7 @@ header {
         text-transform: uppercase;
         cursor: pointer;
 
-        @include breakpoint-up(x-small) {
+        @include breakpoint-down(small) {
           margin-right: 0px;
         }
       }
@@ -97,7 +97,7 @@ header {
 
       a:hover {
         color: $offWhite_hov;
-        @include breakpoint-up(x-small) {
+        @include breakpoint-down(x-small) {
           color: $offWhite;
         }
       }
@@ -168,7 +168,7 @@ header {
         display: none;
       }
     }
-    @include breakpoint-up(x-small) {
+    @include breakpoint-down(small) {
       padding: 10px 10px;
     }
   }

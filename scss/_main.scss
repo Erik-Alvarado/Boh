@@ -2,27 +2,41 @@
   margin-top: 35px;
   display: flex;
   justify-content: center;
-  @include breakpoint-up(x-small) {
-    flex-direction: column;
-    margin-bottom: 70px;
+  padding: 0 25px;
+  @include breakpoint-down(small) {
+    margin-bottom: 50px;
   }
-  @include breakpoint-up(small) {
+  @include breakpoint-down(x-small) {
     flex-direction: column;
-    margin-bottom: 70px;
   }
 
   .imgContain {
     height: 100%;
-    width: 42%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px 20px;
     grid-template-rows: 300px;
     animation: fadeUp 0.9s ease-in-out;
-    @include breakpoint-up(x-small) {
-      display: none;
+    @include breakpoint-down(large) {
+      width: fit-content;
+      gap: 0 20px;
+      grid-template-rows: 300px;
+      grid-template-columns: 300px 300px;
     }
-    @include breakpoint-up(small) {
+    @media (max-width: 1160px) {
+      grid-template-columns: 290px 290px;
+    }
+    @include breakpoint-down(medium) {
+      width: fit-content;
+      gap: 0 10px;
+      grid-template-rows: 200px;
+      grid-template-columns: 280px 280px;
+    }
+    @include breakpoint-down(small) {
+      grid-template-rows: 200px;
+      grid-template-columns: 230px 230px;
+    }
+    @media (max-width: 768px) {
       display: none;
     }
 
@@ -48,10 +62,16 @@
       height: 274px;
       width: 385px;
       padding: 15px 0 0 15px;
+      @include breakpoint-down(medium) {
+        height: 90%;
+      }
       .advenImg {
         background-image: url("/assets/mountain.png");
         height: 274px;
         width: 385px;
+        @include breakpoint-down(large) {
+          height: 100%;
+        }
       }
     }
     :nth-child(2) {
@@ -59,20 +79,35 @@
       width: 385px;
       padding: 15px 0 0 15px;
       margin-top: 50px;
+      @include breakpoint-down(medium) {
+        height: 575px;
+      }
+
       .advenImg {
         background-image: url("/assets/river.png");
         height: 635px;
         width: 385px;
+        @include breakpoint-down(large) {
+          height: 100%;
+        }
       }
     }
     :nth-child(3) {
       height: 555px;
       width: 385px;
       padding: 15px 0 0 15px;
+
+      @include breakpoint-down(medium) {
+        height: 475px;
+      }
+
       .advenImg {
         background-image: url("/assets/waterfall.png");
         height: 555px;
         width: 385px;
+        @include breakpoint-down(large) {
+          height: 100%;
+        }
       }
     }
   }
@@ -82,8 +117,33 @@
     align-self: center;
     margin-left: 15px;
     animation: fadeRight 0.9s ease-in-out;
-    @include breakpoint-up(x-small) {
-      width: 460px;
+    @include breakpoint-down(large) {
+      width: 400px;
+    }
+    @include breakpoint-down(medium) {
+      width: 300px;
+    }
+    @media (max-width: 768px) {
+      width: 600px;
+    }
+    @include breakpoint-down(x-small) {
+      width: 420px;
+    }
+    h2 {
+      @include breakpoint-down(x-small) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      @include breakpoint-down(large) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 110px;
+      }
+      @include breakpoint-down(medium) {
+        height: 95px;
+      }
     }
     .morph {
       :hover {
@@ -107,6 +167,89 @@
         vertical-align: middle;
         margin-left: 10px;
         transition: ease-out 1s;
+      }
+    }
+  }
+  .about-img {
+    background-image: url("/assets/team.jpg");
+    background-size: cover;
+    height: 580px;
+    width: 1459px;
+    border-radius: 10px;
+    box-shadow: inset 0 0px 12px rgba(0, 0, 0, 0.5);
+  }
+}
+.hero-about {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+  padding: 0 25px;
+
+  .about-header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 30px;
+    align-self: start;
+    width: 670px;
+    animation: fadeUp 1s ease;
+
+    div:last-child {
+      width: 5%;
+      border-bottom: 4px solid $accentBlack;
+      justify-self: start;
+      margin-left: 8px;
+    }
+    h3 {
+      border-bottom: 4px solid $accentBlack;
+      padding: 0 15px;
+      justify-self: end;
+      @include breakpoint-down(small) {
+        padding: 0;
+      }
+    }
+  }
+  .about-container {
+    display: flex;
+    margin-bottom: 15px;
+
+    .about-info {
+      width: 995px;
+      height: 300px;
+      margin-right: 20px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .contact-info {
+      width: 450px;
+      height: 300px;
+      padding-left: 20px;
+      border-left: 4px solid $accentBlack;
+      p {
+        overflow: hidden;
+        height: 152px;
+        text-overflow: ellipsis;
+      }
+      .contact-data {
+        .phone {
+          display: flex;
+          align-items: center;
+          p {
+            margin-left: 10px;
+            margin-top: 8px;
+            height: 20px;
+          }
+        }
+        .email {
+          display: flex;
+          align-items: center;
+          p {
+            margin-left: 12px;
+            margin-top: 8px;
+            height: 20px;
+          }
+        }
       }
     }
   }
@@ -141,10 +284,7 @@
     h3 {
       border-bottom: 4px solid $accentBlack;
       padding: 0 15px;
-      @include breakpoint-up(x-small) {
-        padding: 0;
-      }
-      @include breakpoint-up(small) {
+      @include breakpoint-down(small) {
         padding: 0;
       }
     }
@@ -155,11 +295,12 @@
     gap: 10px 25px;
     animation: fadeRight 1s ease;
     animation-delay: 1s;
-    @include breakpoint-up(x-small) {
-      grid-template-columns: repeat(1, 1fr);
+
+    @include breakpoint-down(small) {
+      grid-template-columns: repeat(2, 1fr);
       justify-content: center;
     }
-    @include breakpoint-up(small) {
+    @include breakpoint-down(x-small) {
       grid-template-columns: repeat(1, 1fr);
       justify-content: center;
     }
@@ -175,6 +316,12 @@
     .blog-card:hover,
     .blog-card:focus {
       background-size: 230%;
+      @include breakpoint-down(large) {
+        background-size: 260%;
+      }
+      @include breakpoint-down(medium) {
+        background-size: cover;
+      }
     }
     .blog-card {
       display: flex;
@@ -187,6 +334,28 @@
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       transition: 1s ease all;
+      @include breakpoint-down(large) {
+        width: 360px;
+        background-size: 225%;
+      }
+      @media (max-width: 1160px) {
+        width: 320px;
+      }
+      @include breakpoint-down(medium) {
+        height: 460px;
+        width: 277px;
+        background-position: top;
+        background-size: cover;
+      }
+      @include breakpoint-down(small) {
+        height: 460px;
+        width: 300px;
+        margin-bottom: 20px;
+      }
+      @include breakpoint-down(x-small) {
+        height: 430px;
+        width: 357px;
+      }
 
       .blog-overlay {
         height: 217px;
@@ -218,6 +387,7 @@
         a {
           background-image: none;
           align-self: flex-end;
+          text-decoration: none;
         }
         i {
           background-image: none;
@@ -236,6 +406,14 @@
           text-overflow: ellipsis;
           background-image: none;
         }
+      }
+    }
+    .blog-card:nth-child(3) {
+      @include breakpoint-down(small) {
+        display: none;
+      }
+      @include breakpoint-down(x-small) {
+        display: flex;
       }
     }
   }

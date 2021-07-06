@@ -6,44 +6,42 @@
   padding: 15px 20px;
   .foot-info {
     width: 457px;
-    @include breakpoint-up(small) {
-      width: 50%;
+    @include breakpoint-down(small) {
+      width: 40%;
     }
-    @include breakpoint-up(x-small) {
-      width: 50%;
-    }
+
     .foot-logo {
-      width: 30%;
+      width: 25%;
+      @include breakpoint-down(x-small) {
+        width: 45%;
+      }
     }
     p {
       font-size: 1rem;
-      @include breakpoint-up(small) {
-        font-size: 0.75rem;
-      }
-      @include breakpoint-up(x-small) {
-        font-size: 0.75rem;
+      @include breakpoint-down(small) {
+        font-size: 0.875rem;
+        width: 200px;
       }
     }
   }
   .foot-nav {
     width: 350px;
     cursor: pointer;
-    @include breakpoint-up(x-small) {
-      width: 50%;
-    }
-    @include breakpoint-up(small) {
+
+    @include breakpoint-down(small) {
       width: 50%;
     }
     .nav-links {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      @include breakpoint-up(small) {
+      @include breakpoint-down(medium) {
+        justify-content: space-around;
+      }
+      @include breakpoint-down(small) {
         justify-content: space-evenly;
       }
-      @include breakpoint-up(x-small) {
-        justify-content: space-evenly;
-      }
+
       li {
         font-size: 1.5rem;
         list-style: none;
@@ -66,13 +64,11 @@
   }
   .foot-social {
     font-size: 2.5rem;
-    @include breakpoint-up(x-small) {
+
+    @include breakpoint-down(small) {
       display: flex;
       flex-direction: column;
-    }
-    @include breakpoint-up(small) {
-      display: flex;
-      flex-direction: column;
+      font-size: 2rem;
     }
   }
 }

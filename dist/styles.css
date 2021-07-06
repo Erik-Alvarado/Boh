@@ -237,7 +237,7 @@ header .menu-nav .nav-links input[type="search"] {
   background: url("/assets/SVG/Icon feather-search-white.svg") no-repeat 4px center;
   background-size: 25px 22px;
   border: 0px solid #ccc;
-  padding: 7px 10px 7px 35px;
+  padding: 7px 10px 4px 35px;
   width: 37px;
   border-radius: 10em;
   transition: all 0.5s;
@@ -247,6 +247,7 @@ header .menu-nav .nav-links input[type="search"]:focus {
   width: 130px;
   background-color: transparent;
   border: 1px solid #0ec254;
+  color: #707070;
   box-shadow: 0 0 5px rgba(109, 246, 143, 0.5);
 }
 
@@ -376,6 +377,7 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
   display: flex;
   justify-content: center;
   padding: 0 25px;
+  flex-direction: column;
 }
 
 @media (max-width: 56.25em) {
@@ -388,6 +390,57 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
   .hero-content {
     flex-direction: column;
   }
+}
+
+.hero-content .activitySearch {
+  align-self: center;
+}
+
+.hero-content .activitySearch input[type="search"] {
+  -webkit-appearance: textfield;
+  font-family: inherit;
+  font-size: 100%;
+  text-transform: uppercase;
+  background: url("/assets/SVG/Icon feather-search-black.svg") no-repeat 10px center;
+  background-size: 25px 22px;
+  padding: 15px 10px 14px 40px;
+  border-radius: 10em;
+  transition: all 0.5s;
+  background-color: #f2f2f2;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #f2f2f2;
+  width: 70vw;
+}
+
+.hero-content .activitySearch input {
+  outline: none;
+}
+
+.hero-content .activitySearch input[type="search"]:focus-visible {
+  border: 2px solid #0ec254;
+}
+
+.hero-content .geoSearch {
+  height: 100%;
+  display: flex;
+}
+
+.hero-content .geoSearch #map {
+  height: 400px;
+  width: 100%;
+}
+
+.hero-content .geoSearch #sidebar {
+  flex-basis: 5rem;
+  flex-grow: 1;
+  padding: 1rem;
+  max-width: 30rem;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-content .imgContain {
@@ -702,7 +755,77 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
   align-items: center;
 }
 
-.hero-blog .blog-header {
+.hero-blog .tips {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 25px;
+  padding: 0 50px;
+}
+
+@media (max-width: 56.25em) {
+  .hero-blog .tips {
+    margin-top: -25px;
+  }
+}
+
+.hero-blog .tips input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.hero-blog .tips .tip {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: #1a1818;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.hero-blog .tips .tip [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.hero-blog .tips .tip .tipLabel {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.64);
+  cursor: pointer;
+  align-items: center;
+  transition: ease .5s;
+}
+
+.hero-blog .tips .tip .tipLabel::after {
+  content: "\276F";
+  width: 1em;
+  text-align: center;
+  transition: all .35s;
+}
+
+.hero-blog .tips .tip .tipContent {
+  max-height: 0vh;
+  padding: 0 1em;
+  color: #707070;
+  background: #f2f2f2;
+  transition: all .35s;
+}
+
+.hero-blog .tips .tip input:checked ~ .tipContent {
+  max-height: 100vh;
+  padding: 1em;
+}
+
+.hero-blog .tips .tip input:checked ~ .tipLabel {
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.hero-blog input:checked ~ .tipLabel::after {
+  transform: rotateZ(90deg);
+}
+
+.blog-header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
@@ -711,85 +834,86 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
   animation: fadeUp 1s ease;
 }
 
-.hero-blog .blog-header div:first-child {
+.blog-header div:first-child {
   width: 15%;
   border-bottom: 4px solid #1a1818;
   justify-self: end;
   margin-right: 8px;
 }
 
-.hero-blog .blog-header div:last-child {
+.blog-header div:last-child {
   width: 15%;
   border-bottom: 4px solid #1a1818;
   justify-self: start;
   margin-left: 8px;
 }
 
-.hero-blog .blog-header h3 {
+.blog-header h3 {
   border-bottom: 4px solid #1a1818;
   padding: 0 15px;
 }
 
 @media (max-width: 56.25em) {
-  .hero-blog .blog-header h3 {
+  .blog-header h3 {
     padding: 0;
   }
 }
 
-.hero-blog .blog-container {
+.blog-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 25px;
   animation: fadeRight 1s ease;
   animation-delay: 1s;
+  padding: 0 25px;
 }
 
 @media (max-width: 56.25em) {
-  .hero-blog .blog-container {
+  .blog-container {
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
   }
 }
 
 @media (max-width: 39.9375em) {
-  .hero-blog .blog-container {
+  .blog-container {
     grid-template-columns: repeat(1, 1fr);
     justify-content: center;
   }
 }
 
-.hero-blog .blog-container :nth-child(1) {
+.blog-container :nth-child(1) {
   background-image: url("/assets/canyon.png");
 }
 
-.hero-blog .blog-container :nth-child(2) {
+.blog-container :nth-child(2) {
   background-image: url("/assets/hike.png");
 }
 
-.hero-blog .blog-container :nth-child(3) {
+.blog-container :nth-child(3) {
   background-image: url("/assets/diner.png");
 }
 
-.hero-blog .blog-container .blog-card:hover,
-.hero-blog .blog-container .blog-card:focus {
+.blog-container .blog-card:hover,
+.blog-container .blog-card:focus {
   background-size: 230%;
 }
 
 @media (max-width: 83.75em) {
-  .hero-blog .blog-container .blog-card:hover,
-  .hero-blog .blog-container .blog-card:focus {
+  .blog-container .blog-card:hover,
+  .blog-container .blog-card:focus {
     background-size: 260%;
   }
 }
 
 @media (max-width: 63.9375em) {
-  .hero-blog .blog-container .blog-card:hover,
-  .hero-blog .blog-container .blog-card:focus {
+  .blog-container .blog-card:hover,
+  .blog-container .blog-card:focus {
     background-size: cover;
   }
 }
 
-.hero-blog .blog-container .blog-card {
+.blog-container .blog-card {
   display: flex;
   height: 530px;
   width: 417px;
@@ -803,20 +927,20 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
 }
 
 @media (max-width: 83.75em) {
-  .hero-blog .blog-container .blog-card {
+  .blog-container .blog-card {
     width: 360px;
     background-size: 225%;
   }
 }
 
 @media (max-width: 1160px) {
-  .hero-blog .blog-container .blog-card {
+  .blog-container .blog-card {
     width: 320px;
   }
 }
 
 @media (max-width: 63.9375em) {
-  .hero-blog .blog-container .blog-card {
+  .blog-container .blog-card {
     height: 460px;
     width: 277px;
     background-position: top;
@@ -825,7 +949,7 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
 }
 
 @media (max-width: 56.25em) {
-  .hero-blog .blog-container .blog-card {
+  .blog-container .blog-card {
     height: 460px;
     width: 300px;
     margin-bottom: 20px;
@@ -833,13 +957,13 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
 }
 
 @media (max-width: 39.9375em) {
-  .hero-blog .blog-container .blog-card {
+  .blog-container .blog-card {
     height: 430px;
     width: 357px;
   }
 }
 
-.hero-blog .blog-container .blog-card .blog-overlay {
+.blog-container .blog-card .blog-overlay {
   height: 217px;
   padding: 20px 20px;
   background-image: none;
@@ -850,12 +974,12 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
   flex-direction: column;
 }
 
-.hero-blog .blog-container .blog-card .blog-overlay h4 {
+.blog-container .blog-card .blog-overlay h4 {
   color: white;
   background-image: none;
 }
 
-.hero-blog .blog-container .blog-card .blog-overlay .callRead {
+.blog-container .blog-card .blog-overlay .callRead {
   color: rgba(255, 255, 255, 0.64);
   cursor: pointer;
   padding: 3px 6px 4px 6px;
@@ -869,23 +993,23 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
   background-image: none;
 }
 
-.hero-blog .blog-container .blog-card .blog-overlay a {
+.blog-container .blog-card .blog-overlay a {
   background-image: none;
   align-self: flex-end;
   text-decoration: none;
 }
 
-.hero-blog .blog-container .blog-card .blog-overlay i {
+.blog-container .blog-card .blog-overlay i {
   background-image: none;
 }
 
-.hero-blog .blog-container .blog-card .blog-overlay .callRead:hover {
+.blog-container .blog-card .blog-overlay .callRead:hover {
   color: rgba(255, 255, 255, 0.9);
   border: 2px solid rgba(255, 255, 255, 0.9);
   transition: ease-in 0.5s;
 }
 
-.hero-blog .blog-container .blog-card .blog-overlay p {
+.blog-container .blog-card .blog-overlay p {
   color: rgba(255, 255, 255, 0.64);
   height: 79px;
   width: 377px;
@@ -895,13 +1019,13 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
 }
 
 @media (max-width: 56.25em) {
-  .hero-blog .blog-container .blog-card:nth-child(3) {
+  .blog-container .blog-card:nth-child(3) {
     display: none;
   }
 }
 
 @media (max-width: 39.9375em) {
-  .hero-blog .blog-container .blog-card:nth-child(3) {
+  .blog-container .blog-card:nth-child(3) {
     display: flex;
   }
 }

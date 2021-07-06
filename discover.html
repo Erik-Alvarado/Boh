@@ -22,6 +22,7 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css"
     />
+
     <title>BOH! - Travel Awaits</title>
   </head>
   <body>
@@ -68,94 +69,33 @@
         </video>
       </section>
       <section class="hero-content">
-        <div class="imgContain">
-          <div class="imgBack">
-            <div class="advenImg"></div>
+        <form class="activitySearch">
+          <input type="search" placeholder="What are you looking to do..." />
+        </form>
+        <div class="geoSearch">
+          <div id="map"></div>
+          <div id="sidebar">
+            <h3>Results</h3>
+            <ul id="places"></ul>
+            <button id="more">See More</button>
           </div>
-          <div class="imgBack">
-            <div class="advenImg"></div>
-          </div>
-          <div class="imgBack">
-            <div class="advenImg"></div>
-          </div>
-        </div>
-        <div class="advenTxt">
-          <h2>Looking for an Adventure?</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero labore
-            architecto at minus in explicabo deserunt omnis ut, deleniti
-            accusamus quam tempora, illo et veritatis, similique optio quidem
-            dolorem? Nulla? Nemo, perspiciatis vero sunt velit qui quia quisquam
-            vitae maxime magnam tenetur explicabo non at aspernatur. Molestiae
-            pariatur et eos officia dolores. Atque perspiciatis saepe reiciendis
-            error fuga sunt! Voluptatibus.
-          </p>
-          <a href="index.html" class="morph"
-            ><button class="callAction">
-              Discover <i class="fas fa-arrow-right"></i></button
-          ></a>
         </div>
       </section>
       <section class="hero-blog">
-        <div class="blog-header">
-          <div></div>
-          <h3>Travel Stories</h3>
-          <div></div>
-        </div>
-        <div class="blog-container">
-          <div class="blog-card">
-            <div class="blog-overlay">
-              <h4>Lost in 'Zona</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Nostrum, quia. Velit quam magnam dolor dignissimos facilis
-                suscipit necessitatibus nostrum ea consequatur quaerat fugiat
-                voluptas commodi maiores, eius officia nemo, distinctio,
-                repudiandae et corporis perferendis ad hic? Tempora totam
-                recusandae assumenda praesentium quasi inventore odit nisi
-                consequatur iusto, tenetur quisquam! Quisquam?
-              </p>
-              <a href="index.html"
-                ><button class="callRead">
-                  Read More <i class="fas fa-arrow-right"></i></button
-              ></a>
-            </div>
+        <div class="tips">
+          <div class="tip">
+            <input type="checkbox" id="tip1">
+            <label class="tipLabel" for="tip1">
+              <h4>How the Adventure Finder works?</h4>
+            </label>
+            <div class="tipContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis perspiciatis nostrum esse quod placeat, nesciunt sit corporis commodi amet aperiam dolor odio porro magnam dolorem!</div>
           </div>
-          <div class="blog-card">
-            <div class="blog-overlay">
-              <h4>Trail Hike feat. Moose</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Nostrum, quia. Velit quam magnam dolor dignissimos facilis
-                suscipit necessitatibus nostrum ea consequatur quaerat fugiat
-                voluptas commodi maiores, eius officia nemo, distinctio,
-                repudiandae et corporis perferendis ad hic? Tempora totam
-                recusandae assumenda praesentium quasi inventore odit nisi
-                consequatur iusto, tenetur quisquam! Quisquam?
-              </p>
-              <a href="index.html"
-                ><button class="callRead">
-                  Read More <i class="fas fa-arrow-right"></i></button
-              ></a>
-            </div>
-          </div>
-          <div class="blog-card">
-            <div class="blog-overlay">
-              <h4>Tales from '66</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Nostrum, quia. Velit quam magnam dolor dignissimos facilis
-                suscipit necessitatibus nostrum ea consequatur quaerat fugiat
-                voluptas commodi maiores, eius officia nemo, distinctio,
-                repudiandae et corporis perferendis ad hic? Tempora totam
-                recusandae assumenda praesentium quasi inventore odit nisi
-                consequatur iusto, tenetur quisquam! Quisquam?
-              </p>
-              <a href="index.html"
-                ><button class="callRead">
-                  Read More <i class="fas fa-arrow-right"></i></button
-              ></a>
-            </div>
+          <div class="tip">
+            <input type="checkbox" id="tip2">
+            <label class="tipLabel" for="tip2">
+              <h4>I have selected a result... Now what?</h4>
+            </label>
+            <div class="tipContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis perspiciatis nostrum esse quod placeat, nesciunt sit corporis commodi amet aperiam dolor odio porro magnam dolorem!</div>
           </div>
         </div>
       </section>
@@ -200,6 +140,12 @@
       </section>
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+    async
+  ></script>
     <script src="/js/script.js"></script>
+  ></script>
+    <script src="/js/map.js"></script>
   </body>
 </html>

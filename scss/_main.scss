@@ -3,56 +3,130 @@
   display: flex;
   justify-content: center;
   padding: 0 25px;
-  flex-direction: column;
   @include breakpoint-down(small) {
     margin-bottom: 50px;
   }
   @include breakpoint-down(x-small) {
     flex-direction: column;
   }
-  .activitySearch {
-    align-self: center;
-    input[type="search"] {
-      -webkit-appearance: textfield;
-      font-family: inherit;
-      font-size: 100%;
-      text-transform: uppercase;
-      background: url("/assets/SVG/Icon feather-search-black.svg") no-repeat 10px
-        center;
-      background-size: 25px 22px;
-      padding: 15px 10px 14px 40px;
-      border-radius: 10em;
-      transition: all 0.5s;
-      background-color: $insetgray;
-      box-shadow: inset 0 3px 10px rgba(0,0,0,.2);
-      border: 2px solid $insetgray;
-      width: 70vw;
-    }
-    input {
-      outline: none;
-    }
-    input[type="search"]:focus-visible {
-      border: 2px solid $mintGreen;
-    }
-  }
-  .geoSearch {
+  .discover {
     height: 100%;
-    display: flex;
-    #map {
-      height: 400px;
-      width: 100%;
+    .activitySearch {
+      align-self: center;
+      input[type="search"] {
+        -webkit-appearance: textfield;
+        font-family: inherit;
+        font-size: 100%;
+        text-transform: uppercase;
+        background: url("/assets/SVG/Icon feather-search-black.svg") no-repeat
+          10px center;
+        background-size: 25px 22px;
+        padding: 15px 10px 14px 40px;
+        border-radius: 10em;
+        transition: all 0.5s;
+        background-color: $insetgray;
+        box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.2);
+        border: 2px solid $insetgray;
+        width: 70vw;
+      }
+      input {
+        outline: none;
+      }
+      input[type="search"]:focus-visible {
+        border: 2px solid $mintGreen;
+      }
     }
-    #sidebar {
-      flex-basis: 5rem;
-      flex-grow: 1;
-      padding: 1rem;
-      max-width: 30rem;
+    .geoSearch {
       height: 100%;
-      box-sizing: border-box;
       display: flex;
-      overflow: auto;
-      display: flex;
-      flex-direction: column;
+      justify-content: center;
+      margin-top: 20px;
+      #map {
+        width: 800px;
+        height: 450px;
+        border: 0px solid transparent;
+      }
+      #sidebar {
+        flex-basis: 5rem;
+        flex-grow: 1;
+        padding: 0 1rem;
+        max-width: 500px;
+        height: 100%;
+        max-height: 450px;
+        box-sizing: border-box;
+        display: flex;
+        overflow: auto;
+        flex-direction: column;
+
+        // Scrollbar
+        ::-webkit-scrollbar {
+          width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 6px $mintGreen;
+        }
+
+        //
+
+        h3 {
+          border-bottom: 2px solid $accentBlack;
+          width: 20%;
+        }
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          overflow-y: scroll;
+          flex-grow: 1;
+        }
+
+        li.activity {
+          background-color: #f1f1f1;
+          padding: 10px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          font-size: 1.25rem;
+          cursor: pointer;
+          p {
+            font-size: 1rem;
+            white-space: normal;
+            vertical-align: top;
+          }
+          .activityP {
+            line-break: loose;
+          }
+          .highlight {
+            font-weight: bolder;
+          }
+        }
+
+        li.activity:nth-child(odd) {
+          background-color: #fcfcfc;
+        }
+        button {
+          width: 100%;
+          padding: 1rem;
+          flex-grow: 0;
+          cursor: pointer;
+          background: $mintGreen;
+          font-size: 1.5rem;
+          color: $offWhite;
+          border: none;
+          border-radius: 0 0 10px 10px;
+        }
+
+        button:hover {
+          color: $offWhite_hov;
+        }
+      }
     }
   }
 
@@ -300,6 +374,84 @@
     }
   }
 }
+.blogList {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  margin: 10px auto;
+  .blogs {
+    list-style: none;
+    overflow-y: scroll;
+    height: 500px;
+
+    .blog {
+      height: fit-content;
+      display: flex;
+      margin-bottom: 35px;
+      padding: 10px;
+
+      .imgBack {
+        background-color: rgba(255, 255, 255, 0.64);
+        box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.2);
+        height: 125px;
+        border-radius: 10px;
+        .blogImg {
+          height: 140px;
+          width: 170px;
+          margin: 10px 10px 0px 0;
+          border-radius: 10px;
+          background-size: cover;
+        }
+      }
+      .blogInfo {
+        align-self: flex-end;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+
+        .user {
+          text-transform: uppercase;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          .userImg {
+            height: 50px;
+          }
+        }
+      }
+    }
+    :nth-child(1) .blogImg {
+      background-image: url("/assets/desert.png");
+      box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.2);
+    }
+    :nth-child(2) .blogImg {
+      background-image: url("/assets/hike.png");
+      box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.2);
+    }
+    :nth-child(3) .blogImg {
+      background-image: url("/assets/diner.png");
+      background-size: 200%;
+      box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.2);
+    }
+    :nth-child(4) .blogImg {
+      background-image: url("/assets/camping.png");
+      box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px $mintGreen;
+  }
+}
 .hero-blog {
   display: flex;
   justify-content: center;
@@ -319,15 +471,15 @@
       opacity: 0;
       z-index: -1;
     }
-    
+
     .tip {
-      box-shadow: 0 2px 5px rgba(0,0,0,.2);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       color: $accentBlack;
       overflow: hidden;
       border-radius: 10px;
       margin-bottom: 10px;
 
-      [type=checkbox] {
+      [type="checkbox"] {
         box-sizing: border-box;
         padding: 0;
       }
@@ -338,20 +490,20 @@
         background-color: $offWhite;
         cursor: pointer;
         align-items: center;
-        transition: ease .5s;
+        transition: ease 0.5s;
       }
       .tipLabel::after {
         content: "\276F";
         width: 1em;
         text-align: center;
-        transition: all .35s;
+        transition: all 0.35s;
       }
       .tipContent {
         max-height: 0vh;
         padding: 0 1em;
         color: $bodyGray;
         background: $insetgray;
-        transition: all .35s;
+        transition: all 0.35s;
       }
       input:checked ~ .tipContent {
         max-height: 100vh;
@@ -359,172 +511,170 @@
       }
 
       input:checked ~ .tipLabel {
-          background: $offWhite;
-        }
-
+        background: $offWhite;
+      }
     }
-
   }
   input:checked ~ .tipLabel::after {
-    transform: rotateZ(90deg)
-    }
+    transform: rotateZ(90deg);
   }
+}
 
-  .blog-header {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    // width: 30%;
-    margin-bottom: 30px;
-    align-self: center;
-    animation: fadeUp 1s ease;
+.blog-header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  // width: 30%;
+  margin-bottom: 30px;
+  align-self: center;
+  animation: fadeUp 1s ease;
 
-    div:first-child {
-      width: 15%;
-      border-bottom: 4px solid $accentBlack;
-      justify-self: end;
-      margin-right: 8px;
-    }
-    div:last-child {
-      width: 15%;
-      border-bottom: 4px solid $accentBlack;
-      justify-self: start;
-      margin-left: 8px;
-    }
-    h3 {
-      border-bottom: 4px solid $accentBlack;
-      padding: 0 15px;
-      @include breakpoint-down(small) {
-        padding: 0;
-      }
-    }
+  div:first-child {
+    width: 15%;
+    border-bottom: 4px solid $accentBlack;
+    justify-self: end;
+    margin-right: 8px;
   }
-  .blog-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px 25px;
-    animation: fadeRight 1s ease;
-    animation-delay: 1s;
-    padding: 0 25px;
-
+  div:last-child {
+    width: 15%;
+    border-bottom: 4px solid $accentBlack;
+    justify-self: start;
+    margin-left: 8px;
+  }
+  h3 {
+    border-bottom: 4px solid $accentBlack;
+    padding: 0 15px;
     @include breakpoint-down(small) {
-      grid-template-columns: repeat(2, 1fr);
-      justify-content: center;
+      padding: 0;
+    }
+  }
+}
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 25px;
+  animation: fadeRight 1s ease;
+  animation-delay: 1s;
+  padding: 0 25px;
+
+  @include breakpoint-down(small) {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+  @include breakpoint-down(x-small) {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+  }
+  :nth-child(1) {
+    background-image: url("/assets/canyon.png");
+  }
+  :nth-child(2) {
+    background-image: url("/assets/hike.png");
+  }
+  :nth-child(3) {
+    background-image: url("/assets/diner.png");
+  }
+  .blog-card:hover,
+  .blog-card:focus {
+    background-size: 230%;
+    @include breakpoint-down(large) {
+      background-size: 260%;
+    }
+    @include breakpoint-down(medium) {
+      background-size: cover;
+    }
+  }
+  .blog-card {
+    display: flex;
+    height: 530px;
+    width: 417px;
+    align-items: flex-end;
+    border-radius: 10px;
+    background-position: center;
+    background-size: 195%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: 1s ease all;
+    @include breakpoint-down(large) {
+      width: 360px;
+      background-size: 225%;
+    }
+    @media (max-width: 1160px) {
+      width: 320px;
+    }
+    @include breakpoint-down(medium) {
+      height: 460px;
+      width: 277px;
+      background-position: top;
+      background-size: cover;
+    }
+    @include breakpoint-down(small) {
+      height: 460px;
+      width: 300px;
+      margin-bottom: 20px;
     }
     @include breakpoint-down(x-small) {
-      grid-template-columns: repeat(1, 1fr);
-      justify-content: center;
+      height: 430px;
+      width: 357px;
     }
-    :nth-child(1) {
-      background-image: url("/assets/canyon.png");
-    }
-    :nth-child(2) {
-      background-image: url("/assets/hike.png");
-    }
-    :nth-child(3) {
-      background-image: url("/assets/diner.png");
-    }
-    .blog-card:hover,
-    .blog-card:focus {
-      background-size: 230%;
-      @include breakpoint-down(large) {
-        background-size: 260%;
-      }
-      @include breakpoint-down(medium) {
-        background-size: cover;
-      }
-    }
-    .blog-card {
+
+    .blog-overlay {
+      height: 217px;
+      padding: 20px 20px;
+      background-image: none;
+      background-color: $accentBlack;
+      box-shadow: 0px -6px 12px rgba(0, 0, 0, 0.5);
+      border-radius: 0 0 10px 10px;
       display: flex;
-      height: 530px;
-      width: 417px;
-      align-items: flex-end;
-      border-radius: 10px;
-      background-position: center;
-      background-size: 195%;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: 1s ease all;
-      @include breakpoint-down(large) {
-        width: 360px;
-        background-size: 225%;
-      }
-      @media (max-width: 1160px) {
-        width: 320px;
-      }
-      @include breakpoint-down(medium) {
-        height: 460px;
-        width: 277px;
-        background-position: top;
-        background-size: cover;
-      }
-      @include breakpoint-down(small) {
-        height: 460px;
-        width: 300px;
-        margin-bottom: 20px;
-      }
-      @include breakpoint-down(x-small) {
-        height: 430px;
-        width: 357px;
-      }
+      flex-direction: column;
 
-      .blog-overlay {
-        height: 217px;
-        padding: 20px 20px;
+      h4 {
+        color: white;
         background-image: none;
-        background-color: $accentBlack;
-        box-shadow: 0px -6px 12px rgba(0, 0, 0, 0.5);
-        border-radius: 0 0 10px 10px;
-        display: flex;
-        flex-direction: column;
-
-        h4 {
-          color: white;
-          background-image: none;
-        }
-        .callRead {
-          color: $offWhite;
-          cursor: pointer;
-          padding: 3px 6px 4px 6px;
-          margin: 10px auto;
-          border: 2px solid $offWhite;
-          border-radius: 10px;
-          font-family: "Oswald", sans-serif;
-          font-size: 1.25rem;
-          background-color: transparent;
-          transition: ease-out 0.25s;
-          background-image: none;
-        }
-        a {
-          background-image: none;
-          align-self: flex-end;
-          text-decoration: none;
-        }
-        i {
-          background-image: none;
-        }
-        .callRead:hover {
-          color: $offWhite_hov;
-          border: 2px solid $offWhite_hov;
-          transition: ease-in 0.5s;
-        }
-
-        p {
-          color: $offWhite;
-          height: 79px;
-          width: 377px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          background-image: none;
-        }
       }
-    }
-    .blog-card:nth-child(3) {
-      @include breakpoint-down(small) {
-        display: none;
+      .callRead {
+        color: $offWhite;
+        cursor: pointer;
+        padding: 3px 6px 4px 6px;
+        margin: 10px auto;
+        border: 2px solid $offWhite;
+        border-radius: 10px;
+        font-family: "Oswald", sans-serif;
+        font-size: 1.25rem;
+        background-color: transparent;
+        transition: ease-out 0.25s;
+        background-image: none;
       }
-      @include breakpoint-down(x-small) {
-        display: flex;
+      a {
+        background-image: none;
+        align-self: flex-end;
+        text-decoration: none;
+      }
+      i {
+        background-image: none;
+      }
+      .callRead:hover {
+        color: $offWhite_hov;
+        border: 2px solid $offWhite_hov;
+        transition: ease-in 0.5s;
+      }
+
+      p {
+        color: $offWhite;
+        height: 79px;
+        width: 377px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-image: none;
       }
     }
   }
+  .blog-card:nth-child(3) {
+    @include breakpoint-down(small) {
+      display: none;
+    }
+    @include breakpoint-down(x-small) {
+      display: flex;
+    }
+  }
+}

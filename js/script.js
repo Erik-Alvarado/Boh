@@ -40,8 +40,10 @@ function hasScrolled() {
 const hamburger = document.querySelector(".ham-menu");
 const navMenu = document.querySelector(".menu-nav");
 
-hamburger.addEventListener("click", mobileMenu);
-function mobileMenu() {
+hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
-}
+});
+ 
+   
+

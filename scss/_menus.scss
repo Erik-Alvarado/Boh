@@ -36,6 +36,7 @@ header {
         margin-right: -80px;
       }
     }
+
     .nav-logo {
       width: 34%;
     }
@@ -43,14 +44,16 @@ header {
       list-style-type: none;
       display: inline-flex;
       @include breakpoint-down(small) {
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: fixed;
         right: -100%;
         top: 5rem;
-        flex-direction: column;
         width: 50%;
         border-radius: 10px;
+        align-items: flex-end;
         transition: ease 0.3s;
+        opacity: 0;
       }
       @include breakpoint-down(small) {
         height: 55px;
@@ -83,6 +86,11 @@ header {
         z-index: 1;
         border-top: 5px solid #fff;
         margin: 13px 0 0 0;
+        @include breakpoint-down(small) {
+          margin: 13px 0 0 -15px;
+          display: contents;
+          word-wrap: normal;
+        }
 
         li {
           padding: 5px 15px;
@@ -104,6 +112,10 @@ header {
 
       form.nav-search {
         margin: auto;
+        @include breakpoint-down(small) {
+          margin: 0;
+          display: none;
+        }
       }
       input {
         outline: none;
@@ -171,6 +183,23 @@ header {
     }
     @include breakpoint-down(small) {
       padding: 10px 10px;
+    }
+  }
+}
+.menu-nav.active {
+  ul.nav-links {
+    right: 0;
+    opacity: 100%;
+    transition: ease 0.3s;
+    width: 30%;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: $bodyGray;
+    border-radius: 0;
+    margin-top: -10px;
+
+    .nav-search {
+      margin: 0;
     }
   }
 }

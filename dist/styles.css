@@ -102,11 +102,87 @@ header {
   background: #1a1818;
 }
 
-header .ham-menu {
+header .ham-contain {
   display: none;
 }
 
-header .ham-menu div {
+@media (max-width: 56.25em) {
+  header .ham-contain {
+    display: flex;
+    align-items: center;
+  }
+}
+
+header .ham-contain .ham-search input {
+  outline: none;
+}
+
+header .ham-contain .ham-search input[type="search"] {
+  -webkit-appearance: textfield;
+  font-family: inherit;
+  font-size: 100%;
+  background: url("/assets/SVG/Icon feather-search-white.svg") no-repeat 4px center;
+  background-size: 25px 22px;
+  border: 0px solid #ccc;
+  padding: 7px 10px 4px 35px;
+  width: 37px;
+  border-radius: 10em;
+  transition: all 0.5s;
+}
+
+header .ham-contain .ham-search input[type="search"]:focus {
+  width: 130px;
+  background-color: transparent;
+  border: 1px solid #0ec254;
+  color: #707070;
+  box-shadow: 0 0 5px rgba(109, 246, 143, 0.5);
+}
+
+header .ham-contain .ham-search input:-moz-placeholder {
+  color: rgba(255, 255, 255, 0.267);
+}
+
+header .ham-contain .ham-search input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.267);
+}
+
+header .ham-contain .ham-search input[type="search"] {
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+}
+
+header .ham-contain .ham-search input[type="search"]:hover {
+  background-color: transparent;
+}
+
+header .ham-contain .ham-search input[type="search"]:focus {
+  width: 150px;
+  padding-left: 32px;
+  color: #fff;
+  background-color: transparent;
+  cursor: auto;
+}
+
+header .ham-contain .ham-search input:-moz-placeholder {
+  color: transparent;
+}
+
+header .ham-contain .ham-search input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+header .ham-contain .ham-search input::-webkit-search-decoration,
+header .ham-contain .ham-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+header .ham-contain .ham-menu {
+  display: block;
+  margin-left: 10px;
+}
+
+header .ham-contain .ham-menu div {
   background-color: #fff;
   width: 30px;
   background: white;
@@ -114,12 +190,6 @@ header .ham-menu div {
   margin: 7px auto;
   border-radius: 50px;
   cursor: pointer;
-}
-
-@media (max-width: 56.25em) {
-  header .ham-menu {
-    display: block;
-  }
 }
 
 header .menu-nav {
@@ -189,6 +259,12 @@ header .menu-nav .nav-links .dropdown:hover .dropdown-content {
   flex-direction: column;
 }
 
+@media (max-width: 56.25em) {
+  header .menu-nav .nav-links .dropdown:hover .dropdown-content {
+    display: none;
+  }
+}
+
 header .menu-nav .nav-links .dropdown-content {
   word-wrap: break-word;
   list-style: none;
@@ -206,7 +282,7 @@ header .menu-nav .nav-links .dropdown-content {
 @media (max-width: 56.25em) {
   header .menu-nav .nav-links .dropdown-content {
     margin: 13px 0 0 -15px;
-    display: contents;
+    display: contents !important;
     word-wrap: normal;
   }
 }

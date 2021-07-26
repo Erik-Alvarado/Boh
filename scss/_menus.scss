@@ -6,19 +6,89 @@ header {
   width: 100%;
   z-index: 5;
   background: $accentBlack;
-  .ham-menu {
+  .ham-contain {
     display: none;
-    div {
-      background-color: #fff;
-      width: 30px;
-      background: white;
-      height: 3px;
-      margin: 7px auto;
-      border-radius: 50px;
-      cursor: pointer;
-    }
     @include breakpoint-down(small) {
+      display: flex;
+      align-items: center;
+    }
+    .ham-search {
+      input {
+        outline: none;
+      }
+      input[type="search"] {
+        -webkit-appearance: textfield;
+        font-family: inherit;
+        font-size: 100%;
+        background: url("/assets/SVG/Icon\ feather-search-white.svg") no-repeat
+          4px center;
+        background-size: 25px 22px;
+        border: 0px solid #ccc;
+        padding: 7px 10px 4px 35px;
+        width: 37px;
+
+        -webkit-border-radius: 10em;
+        -moz-border-radius: 10em;
+        border-radius: 10em;
+
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        transition: all 0.5s;
+      }
+      input[type="search"]:focus {
+        width: 130px;
+        background-color: transparent;
+        border: 1px solid $mintGreen;
+        color: $bodyGray;
+
+        -webkit-box-shadow: 0 0 5px rgba(109, 246, 132, 0.5);
+        -moz-box-shadow: 0 0 5px rgba(109, 246, 116, 0.5);
+        box-shadow: 0 0 5px rgba(109, 246, 143, 0.5);
+      }
+      input:-moz-placeholder {
+        color: rgba(255, 255, 255, 0.267);
+      }
+      input::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.267);
+      }
+      input[type="search"] {
+        padding-left: 10px;
+        color: transparent;
+        cursor: pointer;
+      }
+      input[type="search"]:hover {
+        background-color: transparent;
+      }
+      input[type="search"]:focus {
+        width: 150px;
+        padding-left: 32px;
+        color: #fff;
+        background-color: transparent;
+        cursor: auto;
+      }
+      input:-moz-placeholder {
+        color: transparent;
+      }
+      input::-webkit-input-placeholder {
+        color: transparent;
+      }
+      input::-webkit-search-decoration,
+      input::-webkit-search-cancel-button {
+        display: none;
+      }
+    }
+    .ham-menu {
       display: block;
+      margin-left: 10px;
+      div {
+        background-color: #fff;
+        width: 30px;
+        background: white;
+        height: 3px;
+        margin: 7px auto;
+        border-radius: 50px;
+        cursor: pointer;
+      }
     }
   }
   .menu-nav {
@@ -73,6 +143,9 @@ header {
       .dropdown:hover .dropdown-content {
         display: flex;
         flex-direction: column;
+        @include breakpoint-down(small) {
+          display: none;
+        }
       }
       .dropdown-content {
         word-wrap: break-word;
@@ -88,7 +161,7 @@ header {
         margin: 13px 0 0 0;
         @include breakpoint-down(small) {
           margin: 13px 0 0 -15px;
-          display: contents;
+          display: contents !important;
           word-wrap: normal;
         }
 

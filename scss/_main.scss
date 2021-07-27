@@ -613,138 +613,154 @@
     }
   }
 }
-.blog-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px 25px;
-  animation: fadeRight 1s ease;
-  animation-delay: 1s;
-  padding: 0 25px;
+.blogCarosel {
+  display: flex;
+  align-items: center;
+  animation: fadeUp 1s ease;
+  animation-delay: 0.5s;
 
-  @include breakpoint-down(small) {
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-  }
-  @include breakpoint-down(x-small) {
-    grid-template-columns: repeat(1, 1fr);
-    justify-content: center;
-  }
-  :nth-child(1) {
-    background-image: url("/assets/canyon.png");
-  }
-  :nth-child(2) {
-    background-image: url("/assets/hike.png");
-  }
-  :nth-child(3) {
-    background-image: url("/assets/diner.png");
-  }
-  .blog-card:hover,
-  .blog-card:focus {
-    background-size: 230%;
-    @include breakpoint-down(large) {
-      background-size: 260%;
-    }
-    @include breakpoint-down(medium) {
-      background-size: cover;
-    }
-  }
-  .blog-card {
-    display: flex;
-    height: 530px;
-    width: 417px;
-    align-items: flex-end;
-    border-radius: 10px;
-    background-position: center;
-    background-size: 195%;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  a.forward,
+  a.back {
+    font-size: 30px;
+    opacity: 50%;
+    transition: ease 0.5s;
     cursor: pointer;
-    transition: 1s ease all;
-    @include breakpoint-down(large) {
-      width: 360px;
-      background-size: 225%;
-    }
-    @media (max-width: 1160px) {
-      width: 300px;
-      background-size: 300%;
-      background-position: 50%;
-    }
-    @include breakpoint-down(medium) {
-      height: 460px;
-      width: 277px;
-      background-position: top;
-      background-size: cover;
-    }
-    @include breakpoint-down(small) {
-      height: 460px;
-      width: 300px;
-      margin-bottom: 20px;
-    }
-    @include breakpoint-down(x-small) {
-      height: 430px;
-      width: 357px;
-    }
-
-    @media (max-width: 400px) {
-      width: 300px;
-    }
-
-    .blog-overlay {
-      height: 217px;
-      padding: 20px 20px;
-      background-image: none;
-      background-color: $accentBlack;
-      box-shadow: 0px -6px 12px rgba(0, 0, 0, 0.5);
-      border-radius: 0 0 10px 10px;
-      display: flex;
-      flex-direction: column;
-
-      h4 {
-        color: white;
-        background-image: none;
-      }
-      .callRead {
-        color: $offWhite;
-        cursor: pointer;
-        padding: 3px 6px 4px 6px;
-        margin: 10px auto;
-        border: 2px solid $offWhite;
-        border-radius: 10px;
-        font-family: "Oswald", sans-serif;
-        font-size: 1.25rem;
-        background-color: transparent;
-        transition: ease-out 0.25s;
-        background-image: none;
-      }
-      a {
-        background-image: none;
-        align-self: flex-end;
-        text-decoration: none;
-      }
-      i {
-        background-image: none;
-      }
-      .callRead:hover {
-        color: $offWhite_hov;
-        border: 2px solid $offWhite_hov;
-        transition: ease-in 0.5s;
-      }
-
-      p {
-        color: $offWhite;
-        height: 79px;
-        width: 377px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        background-image: none;
-      }
-    }
   }
-  .blog-card:nth-child(3) {
+  a.forward:hover,
+  a.back:hover {
+    transform: scale(1.1);
+    opacity: 100%;
+  }
+  .blog-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 25px;
+    margin: 0 15px;
+
     @include breakpoint-down(small) {
-      display: none;
+      grid-template-columns: repeat(2, 1fr);
+      overflow-x: hidden;
     }
     @include breakpoint-down(x-small) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-content: center;
+    }
+    :nth-child(1) {
+      background-image: url("/assets/canyon.png");
+    }
+    :nth-child(2) {
+      background-image: url("/assets/hike.png");
+    }
+    :nth-child(3) {
+      background-image: url("/assets/diner.png");
+    }
+    .blog-card:hover,
+    .blog-card:focus {
+      background-size: 230%;
+      @include breakpoint-down(large) {
+        background-size: 260%;
+      }
+      @include breakpoint-down(medium) {
+        background-size: cover;
+      }
+    }
+    .blog-card {
       display: flex;
+      height: 530px;
+      width: 417px;
+      align-items: flex-end;
+      border-radius: 10px;
+      background-position: center;
+      background-size: 195%;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: 1s ease all;
+      @include breakpoint-down(large) {
+        width: 360px;
+        background-size: 225%;
+      }
+      @media (max-width: 1160px) {
+        width: 300px;
+        background-size: 300%;
+        background-position: 50%;
+      }
+      @include breakpoint-down(medium) {
+        height: 460px;
+        width: 277px;
+        background-position: top;
+        background-size: cover;
+      }
+      @include breakpoint-down(small) {
+        height: 460px;
+        width: 300px;
+        margin-bottom: 20px;
+      }
+      @include breakpoint-down(x-small) {
+        height: 430px;
+        width: 357px;
+      }
+
+      @media (max-width: 400px) {
+        width: 300px;
+      }
+      .blog-overlay {
+        height: 217px;
+        padding: 20px 20px;
+        background-image: none;
+        background-color: $accentBlack;
+        box-shadow: 0px -6px 12px rgba(0, 0, 0, 0.5);
+        border-radius: 0 0 10px 10px;
+        display: flex;
+        flex-direction: column;
+
+        h4 {
+          color: white;
+          background-image: none;
+        }
+        .callRead {
+          color: $offWhite;
+          cursor: pointer;
+          padding: 3px 6px 4px 6px;
+          margin: 10px auto;
+          border: 2px solid $offWhite;
+          border-radius: 10px;
+          font-family: "Oswald", sans-serif;
+          font-size: 1.25rem;
+          background-color: transparent;
+          transition: ease-out 0.25s;
+          background-image: none;
+        }
+        a {
+          background-image: none;
+          align-self: flex-end;
+          text-decoration: none;
+        }
+        i {
+          background-image: none;
+        }
+        .callRead:hover {
+          color: $offWhite_hov;
+          border: 2px solid $offWhite_hov;
+          transition: ease-in 0.5s;
+        }
+
+        p {
+          color: $offWhite;
+          height: 79px;
+          width: 377px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          background-image: none;
+        }
+      }
+    }
+    .blog-card:nth-child(3) {
+      @include breakpoint-down(small) {
+        display: none;
+      }
+      @include breakpoint-down(x-small) {
+        display: flex;
+      }
     }
   }
 }

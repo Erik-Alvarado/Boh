@@ -1,3 +1,5 @@
+import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
+
 // Hide Header on on scroll down
 let didScroll;
 let lastScrollTop = 0;
@@ -35,7 +37,24 @@ function hasScrolled() {
 
   lastScrollTop = st;
 }
+new Glide('.glide').mount()
+new Glide('.glide').mount({ Controls, Breakpoints })
 
+const glide = new Glide('#intro', {
+  type: 'carousel',
+  perView: 3,
+  focusAt: 'start',
+  breakpoints: {
+    900: {
+      perView: 2
+    },
+    640: {
+      perView: 1
+    }
+  }
+})
+
+glide.mount()
 const hamburger = document.querySelector(".ham-menu");
 const navMenu = document.querySelector(".menu-nav");
 

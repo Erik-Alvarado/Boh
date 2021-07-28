@@ -81,13 +81,20 @@ header {
       display: block;
       margin-left: 10px;
       div {
+        transition: ease 0.3s;
         background-color: #fff;
-        width: 30px;
+        width: 25px;
         background: white;
-        height: 3px;
-        margin: 7px auto;
+        height: 2px;
+        margin: 6px auto;
         border-radius: 50px;
         cursor: pointer;
+      }
+      div:nth-child(1) {
+        transform-origin: left center;
+      }
+      div:nth-child(3) {
+        transform-origin: left center;
       }
     }
   }
@@ -271,9 +278,31 @@ header {
     background-color: $bodyGray;
     border-radius: 0;
     margin-top: -10px;
+    @include breakpoint-up(medium) {
+      background-color: transparent;
+      width: initial;
+      height: 100%;
+      margin-top: 0;
+      align-items: center;
+    }
 
     .nav-search {
       margin: 0;
+    }
+  }
+  .ham-menu.active {
+    div:nth-child(2) {
+      transition: ease 0.3s;
+      width: 0;
+      opacity: 0%;
+    }
+    div:nth-child(1) {
+      transition: ease 0.3s;
+      transform: rotate(40deg);
+    }
+    div:nth-child(3) {
+      transition: ease 0.3s;
+      transform: rotate(-40deg);
     }
   }
 }

@@ -183,13 +183,22 @@ header .ham-contain .ham-menu {
 }
 
 header .ham-contain .ham-menu div {
+  transition: ease 0.3s;
   background-color: #fff;
-  width: 30px;
+  width: 25px;
   background: white;
-  height: 3px;
-  margin: 7px auto;
+  height: 2px;
+  margin: 6px auto;
   border-radius: 50px;
   cursor: pointer;
+}
+
+header .ham-contain .ham-menu div:nth-child(1) {
+  transform-origin: left center;
+}
+
+header .ham-contain .ham-menu div:nth-child(3) {
+  transform-origin: left center;
 }
 
 header .menu-nav {
@@ -402,8 +411,34 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
   margin-top: -10px;
 }
 
+@media (min-width: 56.25em) {
+  .menu-nav.active ul.nav-links {
+    background-color: transparent;
+    width: initial;
+    height: 100%;
+    margin-top: 0;
+    align-items: center;
+  }
+}
+
 .menu-nav.active ul.nav-links .nav-search {
   margin: 0;
+}
+
+.menu-nav.active .ham-menu.active div:nth-child(2) {
+  transition: ease 0.3s;
+  width: 0;
+  opacity: 0%;
+}
+
+.menu-nav.active .ham-menu.active div:nth-child(1) {
+  transition: ease 0.3s;
+  transform: rotate(40deg);
+}
+
+.menu-nav.active .ham-menu.active div:nth-child(3) {
+  transition: ease 0.3s;
+  transform: rotate(-40deg);
 }
 
 .active .nav-links {
@@ -1247,20 +1282,6 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
   animation-delay: 0.5s;
 }
 
-.blogCarosel a.forward,
-.blogCarosel a.back {
-  font-size: 30px;
-  opacity: 50%;
-  transition: ease 0.5s;
-  cursor: pointer;
-}
-
-.blogCarosel a.forward:hover,
-.blogCarosel a.back:hover {
-  transform: scale(1.1);
-  opacity: 100%;
-}
-
 .blogCarosel .blog-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1427,13 +1448,13 @@ header .menu-nav .nav-links input::-webkit-search-cancel-button {
 }
 
 @media (max-width: 56.25em) {
-  .blogCarosel .blog-container .blog-card:nth-child(3) {
+  .blogCarosel .blog-card:nth-child(3) {
     display: none;
   }
 }
 
 @media (max-width: 39.9375em) {
-  .blogCarosel .blog-container .blog-card:nth-child(3) {
+  .blogCarosel .blog-card:nth-child(3) {
     display: flex;
   }
 }

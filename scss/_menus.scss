@@ -267,12 +267,19 @@ header {
     }
   }
 }
+.nav-up {
+  .menu-nav.active {
+    ul.nav-links {
+      right: -100%;
+    }
+  }
+}
 .menu-nav.active {
   ul.nav-links {
     right: 0;
     opacity: 100%;
     transition: ease 0.3s;
-    width: 30%;
+    width: 50%;
     align-items: flex-start;
     height: 100vh;
     background-color: $bodyGray;
